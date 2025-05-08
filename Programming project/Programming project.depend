@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1745435242 source:c:\users\admin\desktop\programming project\main.cpp
+	<iostream>
+	<string>
+	"link.h"
+	"Materials.h"
+
+1746144334 source:c:\users\admin\desktop\programming project\link.cpp
+	<iostream>
+	<cmath>
+	"link.h"
+
+1745434609 c:\users\admin\desktop\programming project\link.h
+	<utility>
+
+1744935593 c:\users\admin\desktop\programming project\materials.h
+
+1746118801 source:c:\users\admin\desktop\programming project\materials.cpp
+	<iostream>
+	<vector>
+	"Materials.h"
+
+1746712601 source:c:\falcon\foe\spring 2025\programming\single-link-design-project\programming project\link.cpp
+	<iostream>
+	<cmath>
+	"link.h"
+
+1745434609 c:\falcon\foe\spring 2025\programming\single-link-design-project\programming project\link.h
+	<utility>
+
+1746711072 source:c:\falcon\foe\spring 2025\programming\single-link-design-project\programming project\main.cpp
+	<iostream>
+	<string>
+	"link.h"
+	"Materials.h"
+
+1744935593 c:\falcon\foe\spring 2025\programming\single-link-design-project\programming project\materials.h
+
+1746118801 source:c:\falcon\foe\spring 2025\programming\single-link-design-project\programming project\materials.cpp
+	<iostream>
+	<vector>
+	"Materials.h"
+
