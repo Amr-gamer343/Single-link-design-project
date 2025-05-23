@@ -6,7 +6,7 @@ using namespace std;
 
 float g = 9.81;
 
-void link::input_data()
+void link::input_data() //input the cross section type, dimensions, length, payload, and ang acc
 {
     cout << "Input the cross section type (c) for circular (r) for rectangular: ";
     while(true)
@@ -14,7 +14,7 @@ void link::input_data()
         cin >> cross_section;
         if(cross_section == 'c' || cross_section == 'r')
         {
-        break;
+            break;
         }
         else
         {
@@ -39,7 +39,7 @@ void link::input_data()
     cin >> ang_acc;
 }
 
-double link::calc()
+double link::calc() // calculates the stress on the link
 {
     if(cross_section=='c')
     {
@@ -64,85 +64,69 @@ double link::calc()
     return stress;
 }
 
-double link::comparison()
+void link::red_dim() //reduces dimensions and recalculates stress
 {
-    double new_stress=stress;
-    if(cross_section=='c' && stress>y_stress)
+    if (cross_section == 'c')
     {
-        r_new=r*1.01;
-        cout<<"The new radius: "<<r_new<<" mm"<<endl;
-    }
-    else if(cross_section=='c' && stress<y_stress)
-    {
-        if(stress<y_stress)
-        {
-            for(int i=0; stress<y_stress; i++)
-            {
-                r= r*0.99;
-                stress=calc();
-            }
-            r=r/0.99;
-            stress=calc();
-            new_stress=stress;
-            r_new=r;
-            cout<<"The new radius: "<<r_new<<" mm"<<endl;
-        }
-        else if(stress<custom_y_stress)
-        {
-            for(int i=0; stress<custom_y_stress; i++)
-            {
-                r= r*0.99;
-                stress=calc();
-            }
-            r=r/0.99;
-            stress=calc();
-            new_stress=stress;
-            r_new=r;
-            cout<<"The new radius: "<<r_new<<" mm"<<endl;
-        }
-    }
-    else if(cross_section=='r' && stress>y_stress)
-    {
-        b_new=b*1.01;
-        h_new=h*1.01;
-        cout<<"The new base & height: "<<b_new<<" mm, "<<h_new<<" mm"<<endl;
-    }
-    else if(cross_section=='r' && stress<y_stress)
-    {
-        if(stress<y_stress)
-        {
-            for(int i=0; stress<y_stress; i++)
-            {
-                b= b*0.99;
-                h= h*0.99;
-                stress=calc();
-            }
-            b=b/0.99;
-            h=h/0.99;
-            stress=calc();
-            new_stress=stress;
-            b_new=b;
-            h_new=h;
-            cout<<"The new base & height: "<<b_new<<" mm, "<<h_new<<" mm"<<endl;
-        }
-        else if(stress<custom_y_stress)
-        {
-            for(int i=0; stress<custom_y_stress; i++)
-            {
-                b= b*0.99;
-                h= h*0.99;
-                stress=calc();
-            }
-            b=b/0.99;
-            h=h/0.99;
-            stress=calc();
-            new_stress=stress;
-            b_new=b;
-            h_new=h;
-            cout<<"The new base & height: "<<b_new<<" mm, "<<h_new<<" mm"<<endl;
-        }
+        r = r *0.99;
+        stress=calc();
 
     }
+    else if (cross_section == 'r')
+    {
+        b = b *0.99;
+        h = h *0.99;
+        stress=calc();
+    }
+
+}
+void link::inc_dim() // increases dimensions and recalculates stress
+{
+    if (cross_section == 'c')
+    {
+        r = r *1.01;
+        stress=calc();
+    }
+    else if (cross_section == 'r')
+    {
+        b = b *1.01;
+        h = h *1.01;
+        stress=calc();
+    }
+
+}
+
+double link::comparison() // increases or decreases dimensions based on the yield stress
+{
+    if (stress > y_stress)
+    {
+        while(stress > y_stress)
+        {
+            inc_dim();
+        }
+    }
+    else if (stress < 0.95*y_stress)
+    {
+        while(stress < 0.95*y_stress)
+        {
+            red_dim();
+        }
+    }
     return 0;
+}
+
+void link::output_dim() //outputs the final dimensions
+{
+    if (cross_section=='c')
+    {
+        cout << "the final radius is " << r << "mm\n";
+        cout << "the final stress is " << stress << "MPa\n";
+    }
+    else if (cross_section=='r')
+    {
+        cout << "the final b is " << b << "mm\n";
+        cout << "the final h is " << h << "mm\n";
+        cout << "the final stress is " << stress << "MPa\n";
+    }
 }
 

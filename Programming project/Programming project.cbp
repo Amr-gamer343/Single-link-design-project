@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,9 +36,13 @@
 		</Compiler>
 		<Unit filename="Materials.cpp" />
 		<Unit filename="Materials.h" />
+		<Unit filename="gear_box.cpp" />
+		<Unit filename="gear_box.h" />
+		<Unit filename="include/Motors.h" />
 		<Unit filename="link.cpp" />
 		<Unit filename="link.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Motors.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

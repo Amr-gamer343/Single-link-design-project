@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Materials::displayTable()
+void Materials::displayTable() //displays the materials table, then saves the selected material properties
 {
     vector<string> materials =
     {

@@ -41,3 +41,76 @@
 	<vector>
 	"Materials.h"
 
+1747089928 source:c:\users\mazen\desktop\cse231\single-link-design-project-98c030332a3cb669cceb49829a49912cc5c17b2e\programming project\link.cpp
+	<iostream>
+	<cmath>
+	"link.h"
+
+1747089040 c:\users\mazen\desktop\cse231\single-link-design-project-98c030332a3cb669cceb49829a49912cc5c17b2e\programming project\link.h
+	<utility>
+
+1747089004 source:c:\users\mazen\desktop\cse231\single-link-design-project-98c030332a3cb669cceb49829a49912cc5c17b2e\programming project\main.cpp
+	<iostream>
+	<string>
+	"link.h"
+	"Materials.h"
+
+1747080903 c:\users\mazen\desktop\cse231\single-link-design-project-98c030332a3cb669cceb49829a49912cc5c17b2e\programming project\materials.h
+
+1747089004 source:c:\users\mazen\desktop\cse231\single-link-design-project-98c030332a3cb669cceb49829a49912cc5c17b2e\programming project\materials.cpp
+	<iostream>
+	<vector>
+	"Materials.h"
+
+1747164998 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\link.cpp
+	<iostream>
+	<cmath>
+	"link.h"
+
+1747164998 d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\link.h
+	<utility>
+
+1747164998 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\materials.cpp
+	<iostream>
+	<vector>
+	"Materials.h"
+
+1747164998 d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\materials.h
+
+1747848839 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\main.cpp
+	<iostream>
+	<string>
+	"link.h"
+	"Materials.h"
+	"Motors.h"
+	"gear_box.h"
+
+1747832516 d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\include\motors.h
+	<vector>
+	<string>
+
+1747832028 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\src\motors.cpp
+	"Motors.h"
+	<iostream>
+	<vector>
+
+1747833414 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\gear\gear\gear_box.cpp
+	"gear_box.h"
+	<vector>
+	<string>
+	<iostream>
+
+1747848636 d:\uni\spring25\cse232s fundamentals of computer programming\project\gear\gear\gear_box.h
+	<string>
+	<vector>
+
+1747848636 d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\gear_box.h
+	<string>
+	<vector>
+
+1747833414 source:d:\uni\spring25\cse232s fundamentals of computer programming\project\single-link-design-project-finalfornow\single-link-design-project-finalfornow\programming project\gear_box.cpp
+	"gear_box.h"
+	<vector>
+	<string>
+	<iostream>
+
