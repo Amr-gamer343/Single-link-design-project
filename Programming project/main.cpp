@@ -1,14 +1,20 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <bits/stdc++.h>
+#include <algorithm>
 #include "link.h"
 #include "Materials.h"
 #include "Motors.h"
 #include "gear_box.h"
+#include "Combined_pairs2.h"
 
 using namespace std;
 
 int main()
 {
+    //Part 1
+
     link link1;
     link1.input_data();
     Materials m;
@@ -22,9 +28,34 @@ int main()
 
     link1.comparison();
     link1.output_dim();
-    Motors M1;
-    M1.input_mlist ();
-    gear_box G1;
-    G1.usergear_input();
+
+
+    // Part 2
+    cout<<endl<<"Motor-Gearbox Selection"<<endl;
+    vector <Motors>v_Motors;
+    vector<gear_box>v_gears;
+    vector<Combined_pairs2> my_pairs;
+    double O_req = input_omegareq();
+    do{
+    input_mlist (v_Motors);
+    gear_input(v_gears);
+    calcProperties(v_Motors ,v_gears ,my_pairs ,(link1.bending_m)/1000.0 ,O_req );
+    if (my_pairs.empty())
+        cout<<"No suitable Combinations, Try again"<<endl;
+    }while (my_pairs.empty());
+    cost_calc(my_pairs);
+    for (int j=0; j<my_pairs.size() ;j++)
+    {
+     cout<<"Valid Motor-Gearbox combination is: "<< my_pairs[j].C_name<<"  Cost="<< my_pairs[j].C_cost<<endl;
+    }
+    sort(my_pairs.begin(), my_pairs.end(), [](const Combined_pairs2& a, const Combined_pairs2& b)
+            {
+        return a.C_cost < b.C_cost;
+            });
+
+
+     cout<<"Optimal Motor-Gearbox combination is: "<< my_pairs[0].C_name<<endl;
+
+
     return 0;
 }

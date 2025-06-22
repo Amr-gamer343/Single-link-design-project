@@ -6,9 +6,10 @@ using namespace std;
 
 float g = 9.81;
 
+
 void link::input_data() //input the cross section type, dimensions, length, payload, and ang acc
 {
-    cout << "Input the cross section type (c) for circular (r) for rectangular: ";
+    cout << "Input the cross section type (c) for circular (r) for rectangular: (case sensitive)";
     while(true)
     {
         cin >> cross_section;
@@ -24,19 +25,70 @@ void link::input_data() //input the cross section type, dimensions, length, payl
     if(cross_section == 'c')
     {
         cout << "Enter the radius (mm): ";
-        cin >> r;
+        while (true)
+        {
+            cin >> r;
+            if (cin.fail() || r <= 0)
+            {
+                cout << " Wrong input, radius must be a number greater than zero: ";
+            }
+            else {break;}
+        }
+
     }
     else if(cross_section == 'r')
     {
         cout << "Enter the base and height (mm): ";
-        cin >> b >> h;
+        while (true)
+        {
+            cin >> b;
+            if (cin.fail() || b <= 0)
+            {
+                cout << " Wrong input, base length must be a number greater than zero: ";
+            }
+            else {break;}
+        }
+        while (true)
+        {
+            cin >> h;
+            if (cin.fail() || h <= 0)
+            {
+                cout << " Wrong input, height must be a number greater than zero: ";
+            }
+            else {break;}
+        }
     }
     cout << "Enter the length of the link (mm): ";
-    cin >> link_length;
+    while (true)
+        {
+            cin >> link_length;
+            if (cin.fail() || link_length <= 0)
+            {
+                cout << " Wrong input, length must be a number greater than zero: ";
+            }
+            else {break;}
+        }
     cout << "Enter the mass of the payload (kg): ";
-    cin >> mass_p;
+    while (true)
+        {
+            cin >> mass_p;
+            if (cin.fail() || mass_p < 0)
+            {
+                cout << " Wrong input, length must be a non negative number : ";
+            }
+            else {break;}
+        }
     cout << "Enter the maximum angular acceleration of the link (rad/s^2): ";
-    cin >> ang_acc;
+    while (true)
+        {
+            cin >> ang_acc;
+            if (cin.fail())
+            {
+                cout << " Wrong input, please try again: ";
+            }
+            else {break;}
+        }
+
 }
 
 double link::calc() // calculates the stress on the link
@@ -53,10 +105,14 @@ double link::calc() // calculates the stress on the link
     }
     else
         cout<<"Please choose c or r!"<<endl;
-    weight_l= mass_l * g * link_length/2;
-    weight_m= mass_p * g * link_length;
+    weight_l= mass_l * g * link_length/2; // [N mm]
+
+    weight_m= mass_p * g * link_length; //[N mm]
+
     inertia= (mass_l*pow(link_length/2,2)*ang_acc)+(mass_p*pow(link_length,2)*ang_acc);
+
     bending_m= weight_l + weight_m + inertia;
+
     if(cross_section=='c')
         stress= (bending_m*r)/moment_I;
     else if(cross_section=='r')
@@ -120,13 +176,21 @@ void link::output_dim() //outputs the final dimensions
     if (cross_section=='c')
     {
         cout << "the final radius is " << r << "mm\n";
-        cout << "the final stress is " << stress << "MPa\n";
+
     }
     else if (cross_section=='r')
     {
         cout << "the final b is " << b << "mm\n";
         cout << "the final h is " << h << "mm\n";
-        cout << "the final stress is " << stress << "MPa\n";
     }
+    cout << "the final stress is " << stress << "MPa\n";
+    cout << "torque required is "  <<bending_m<< "N.mm\n";
 }
+
+link::link(double bending_m) {
+    this->bending_m = bending_m;
+}
+
+
+link::link() {}
 

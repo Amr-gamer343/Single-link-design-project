@@ -14,6 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="../Programming project" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -34,6 +35,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Combined_pairs2.cpp" />
+		<Unit filename="Combined_pairs2.h" />
 		<Unit filename="Materials.cpp" />
 		<Unit filename="Materials.h" />
 		<Unit filename="gear_box.cpp" />
