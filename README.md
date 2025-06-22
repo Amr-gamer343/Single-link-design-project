@@ -9,7 +9,6 @@ Calculates and iteratively adjusts the link’s dimensions (circular or rectangu
 Based on the optimized link, the program determines required torque/speed and filters motor-gearbox combinations from a database. Using a user-defined cost function (weight, diameter, or width), it selects the most efficient setup.
 
  Final Output:
-• Optimized link dimensions and mass
-• Final stress value
-• Best-fit motor-gearbox pair based on performance and design cost
-
+Optimized link dimensions and mass
+Final stress value
+Best-fit motor-gearbox pair based on performance and design cost
